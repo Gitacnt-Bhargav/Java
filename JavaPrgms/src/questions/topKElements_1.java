@@ -20,7 +20,7 @@ public class topKElements_1 {
 
     public List<Integer> topKElementsMinHeapRev(int[] nums, int k){
 
-        //Min Heap
+        //Min Heap reversed
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Collections.reverseOrder());
         for(int num :  nums){
             priorityQueue.offer(num);
