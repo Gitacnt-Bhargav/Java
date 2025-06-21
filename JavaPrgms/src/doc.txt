@@ -1,0 +1,66 @@
+Min-Heap - use Priority Queue - implement queue - heap based priority queue where elements are ordered in natural order ( if they implement Comparable ) or by custom order ( if implemented by Comparator )
+                              - internally uses Binary Heap
+
+                              | Method                    | Description                                                                                                  |
+                              | ------------------------- | ------------------------------------------------------------------------------------------------------------ |
+                              | `add(E e)` / `offer(E e)` | Inserts an element. If capacity is full, `add()` throws exception, `offer()` returns false                   |
+                              | `peek()`                  | Returns the head of the queue (min/max depending on comparator) without removing it. Returns `null` if empty |
+                              | `poll()`                  | Retrieves and removes the head (min/max), or returns `null` if empty                                         |
+                              | `remove()`                | Removes the head element. Throws `NoSuchElementException` if empty                                           |
+                              | `remove(Object o)`        | Removes a specific object from the queue                                                                     |
+                              | `contains(Object o)`      | Returns `true` if queue contains the object                                                                  |
+                              | `size()`                  | Returns the number of elements                                                                               |
+                              | `clear()`                 | Removes all elements                                                                                         |
+                              | `toArray()`               | Converts the queue to an array                                                                               |
+                              | `iterator()`              | Returns an iterator (does not guarantee any specific order)                                                  |
+
+
+Default: Ascending order
+so poll will remove smallest number first or will remove lexicographically smaller in string first (starting with a for eg.)
+
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+pq.add(3);
+pq.add(1);
+pq.add(2);
+System.out.println(pq.poll()); // 1 (min-heap)
+
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+maxHeap.add(3);
+maxHeap.add(1);
+maxHeap.add(2);
+System.out.println(maxHeap.poll()); // 3 (max-heap)
+
+class Task {
+    int priority;
+    String name;
+
+    Task(int priority, String name) {
+        this.priority = priority;
+        this.name = name;
+    }
+}
+
+PriorityQueue<Task> taskQueue = new PriorityQueue<>(Comparator.comparingInt(t -> t.priority));
+taskQueue.add(new Task(2, "Low"));
+taskQueue.add(new Task(1, "High"));
+System.out.println(taskQueue.poll().name); // "High"
+
+Internal Working
+Maintains a heap invariant using an array (dynamic resizing array).
+For insertion: Adds at end, then percolates up.
+For removal: Replaces root with last element, then percolates down.
+
+Time complexities:
+Insert: O(log n)
+Remove (poll): O(log n)
+Peek: O(1)
+
+Does not permit null elements.
+Not thread-safe. Use PriorityBlockingQueue for concurrency.
+The iterator does not guarantee any order.
+Useful in algorithms like Dijkstra’s, A*, Top-K problems, etc.
+
+
+*************************************************************************************************
+
+
