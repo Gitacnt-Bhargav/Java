@@ -63,4 +63,9 @@ Useful in algorithms like Dijkstra’s, A*, Top-K problems, etc.
 
 *************************************************************************************************
 
+LRU Cache -
+LRU is used when you have limited memory and need to decide which item to
+evict when new data comes in.
+The assumption is: recently used data will be used again, and old data is least
+likely to be used.
 

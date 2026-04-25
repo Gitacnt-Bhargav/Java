@@ -15,6 +15,12 @@ public class longestStringUsingStream {
 
         System.out.println(longestString);
 
+        String shortestString = strings.stream()
+                .min(Comparator.comparing(String::length))
+                .orElse(null);
+
+        System.out.println(shortestString);
+
         longestString = strings.stream().sorted(Comparator.comparingInt(String::length).reversed()).limit(1).findFirst().orElse(null);
         System.out.println(longestString);
 
