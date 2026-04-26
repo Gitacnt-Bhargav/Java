@@ -38,7 +38,7 @@ Explanation: The only possible triplet sums up to 0.
 Constraints:
 
 3 <= nums.length <= 3000 -> this means 3 to 3 * 10^3 -> if you write the code in O(n^2) - then it would be 10^6 and if you write the code in O(n^3) - then it would be 10^9
--10^5 <= nums[i] <= 10^5
+-10^5 <= nums[i] <= 10^5 -> this means that we can use int type because Integer type doesnt store more than 10^9 and 10^5 is within Integer limit
      */
 
     public static void main(String[] args) {
