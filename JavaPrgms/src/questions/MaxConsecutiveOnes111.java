@@ -80,7 +80,6 @@ nums[i] is either 0 or 1.
 
         int left = 0;
         int zerocount =0;
-        int maxOnesWithK = 0;
         for(int right = 0; right<n; right++){
 
             if(nums[right]==0){
