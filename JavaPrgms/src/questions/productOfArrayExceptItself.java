@@ -33,7 +33,7 @@ Follow up: Can you solve the problem in O(1) extra space complexity? (The output
     public static void main(String[] args) {
         productOfArrayExceptItself productOfArrayExceptItself = new productOfArrayExceptItself();
 //        int[] nums = {1,2,3,4};
-        int[] nums = {-1,1,0,-3,3};
+//        int[] nums = {-1,1,0,-3,3};
 
         int[] result = productOfArrayExceptItself.productOfArrayExceptItselfNum(nums);
         System.out.println(Arrays.toString(result));
@@ -51,9 +51,9 @@ Follow up: Can you solve the problem in O(1) extra space complexity? (The output
 //1 2 3 4 -> 1 1 2 6
         int rightProduct = 1;
 //1 1 2 6
-        for(int i=nums.length-2; i>=0; i-- ){
-            rightProduct = rightProduct*nums[i+1];
+        for(int i=nums.length-1; i>=0; i-- ){
             result[i] = result[i] * rightProduct;
+            rightProduct = rightProduct*nums[i];
         }
 
         return result;
