@@ -44,7 +44,7 @@ Constraints:
         for (int num : nums) {
             sum += num;
             rem = sum % k;
-            if (rem < 0) rem += k;
+            if (rem < 0) rem += k; //this is to make the number positive
             if (map.containsKey(rem)) {
                 result += map.get(rem);
             }
