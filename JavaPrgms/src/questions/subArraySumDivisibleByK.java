@@ -40,7 +40,7 @@ Constraints:
         HashMap<Integer, Integer> map = new HashMap<>();
         int sum = 0;
         int rem = 0;
-        map.put(0,1); //this is to male sure that if 0 comes up in array, then count can be taken directly rather than initializing and incrementing.
+        map.put(0,1); //this is to make sure that if 0 comes up in array, then count can be taken directly rather than initializing and incrementing.
         for (int num : nums) {
             sum += num;
             rem = sum % k;
