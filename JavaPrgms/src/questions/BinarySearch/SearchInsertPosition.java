@@ -53,7 +53,7 @@ nums contains distinct values sorted in ascending order.
 //        mid = (left+right)/2;
 //        if(nums[mid]<=target) return mid+1;
 //        else return mid;
-
+// the loop would come out when left == right, and so returning left or right is fine here.
         return left;
 
     }
