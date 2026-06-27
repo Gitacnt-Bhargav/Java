@@ -49,12 +49,12 @@ Decision would be to increase the left pointer if left index is <= height in rig
 
         while(l < r){
             height = Math.min(heights[l], heights[r]);
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            System.out.println("l: " + l + " r: " + r);
+//            try {
+//                Thread.sleep(5000);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//            System.out.println("l: " + l + " r: " + r);
             width = r-l;
             maxarea = height * width;
             if(heights[l]<=heights[r]){
