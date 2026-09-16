@@ -53,7 +53,7 @@ The answer is guaranteed to fit in a 32-bit integer.
                 num = (num * 10) + (ch - '0');
             }
 
-            if((!Character.isDigit(ch) && ch != ' ') || i == n-1 ){
+            if((!Character.isDigit(ch) && ch != ' ') || i == n-1 ){ //this is very important - forcing i == n-1 even when its not operator, otherwise last digit would not get proceesed since there is no operator after it and the if statement only operates for an operator
                 switch (operator){
                     case '+':
                         st.push(num);

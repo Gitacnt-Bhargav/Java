@@ -34,7 +34,7 @@ All the integers in s are in the range [1, 300].
     public static void main(String[] args) {
         decodeStringPrgm decodeStr = new decodeStringPrgm();
         String s = "3[a]2[bc]";
-        System.out.println(decodeStr.decodeString(s));
+        System.out.println(decodeStr.decodeString1(s));
     }
 
     public String decodeString(String s){
