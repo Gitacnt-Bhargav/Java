@@ -46,10 +46,11 @@ At most 3 * 10^4 calls will be made to push, pop, top, and getMin.
         MinStackWithMinSpaceComplexity minStack = new MinStackWithMinSpaceComplexity();
         minStack.push(-2);
         minStack.push(0);
-        minStack.push(-3);
+        minStack.push(-1);
         System.out.println(minStack.getMin()); // return -3
-        minStack.pop();
+//        minStack.pop();
         System.out.println(minStack.top());    // return 0
+        minStack.pop();
         System.out.println(minStack.getMin()); // return -2
 
     }
@@ -77,7 +78,7 @@ At most 3 * 10^4 calls will be made to push, pop, top, and getMin.
         if(st.isEmpty())
             return;
         int top = st.pop();
-        minVal = 2*minVal - top;
+        if(top<minVal) minVal = 2*minVal - top;
     }
 
     public int top(){
@@ -94,4 +95,46 @@ At most 3 * 10^4 calls will be made to push, pop, top, and getMin.
     public int getMin() {
         return minVal;
     }
+
+//for Long operation:
+//    Stack<Long> st;
+//    long minVal;
+//    public MinStackWithMinSpaceComplexity() {
+//        st = new Stack<>();
+//    }
+//
+//    public void push(int value) {
+//        if(st.isEmpty()) {
+//            st.push((long) value);
+//            minVal = (long) value;
+//        }else if((long) value <minVal){
+//            st.push(2L*value-minVal); //a new transformation before pushing into stack, so that while popping we can get to know the next minVal without storing that in a separate stack in order to reduce space complexity
+//            minVal = (long) value;
+//        }else{
+//            st.push((long)value);
+//        }
+//
+//    }
+//
+//    public void pop() {
+//        if(st.isEmpty())
+//            return;
+//        long top = st.pop();
+//        if(top<minVal) minVal = 2L*minVal - top;
+//    }
+//
+//    public int top(){
+//        if(st.isEmpty())
+//            return -1;
+//        long top = st.peek();
+//        return (top<minVal) ? (int) minVal : (int) top;
+//    }
+//
+//    public boolean isEmpty(){
+//        return st.isEmpty();
+//    }
+//
+//    public int getMin() {
+//        return (int)minVal;
+//    }
 }
