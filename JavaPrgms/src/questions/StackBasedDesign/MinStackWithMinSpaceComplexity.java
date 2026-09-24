@@ -42,6 +42,31 @@ Methods pop, top and getMin operations will always be called on non-empty stacks
 At most 3 * 10^4 calls will be made to push, pop, top, and getMin.
 */
 
+    /*
+
+                     MIN STACK
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+    value >= min            value < min
+          │                     │
+    store normally          encode it
+                              │
+                    2 * value - oldMin
+                              │
+                         min = value
+
+
+POP:
+                    popped < min ?
+                       /       \
+                     YES        NO
+                      │          │
+              restore old min   do nothing
+              2*min - popped
+     */
+
+
     public static void main(String[] args) {
         MinStackWithMinSpaceComplexity minStack = new MinStackWithMinSpaceComplexity();
         minStack.push(-2);
