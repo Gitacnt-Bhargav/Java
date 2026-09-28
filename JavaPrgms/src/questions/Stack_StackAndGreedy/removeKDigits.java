@@ -1,4 +1,4 @@
-package questions;
+package questions.Stack_StackAndGreedy;
 
 public class removeKDigits {
 
