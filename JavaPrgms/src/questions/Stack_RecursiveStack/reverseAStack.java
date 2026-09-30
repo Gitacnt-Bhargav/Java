@@ -1,4 +1,4 @@
-package questions;
+package questions.Stack_RecursiveStack;
 
 import java.util.Stack;
 
@@ -25,6 +25,13 @@ Constraints:
 0 ≤ stack element ≤ 100
 */
 
+//    The pattern worth remembering for recursive stack problems is:
+//    POP → RECURSE → PUSH
+
+//    And for deleting the middle:
+//    POP until middle → don't push middle → PUSH everything else back
+
+//    Every recursive method needs a base condition that eventually stops the recursion.
 
     public static void main(String[] args) {
         Stack<Integer> st = new Stack<>();
