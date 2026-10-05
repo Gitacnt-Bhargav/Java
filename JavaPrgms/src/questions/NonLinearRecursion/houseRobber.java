@@ -1,5 +1,8 @@
 package questions.NonLinearRecursion;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class houseRobber {
 
 //    Leet code - 198 - Medium
@@ -31,7 +34,10 @@ Constraints:
 
     public static void main(String[] args) {
         houseRobber houseRobber = new houseRobber();
-        int[] nums = {2,7,9,3,1};
+//        int[] nums = {2,7,9,3,1};
+        int[] nums = {114,117,207,117,235,82,90,67,143,146,53,108,200,91,80,223,58,170,110,236,81,90,222,160,165,195,187,199,114,235,197,187,69,129,64,214,228,78,188,67,205,94,205,169,241,202,144,240};
+
+        //114,117,207,117,235,82,90,67,143,146,53,108,200,91,80,223,58,170,110,236,81,90,222,160,165,195,187,199,114,235,197,187,69,129,64,214,228,78,188,67,205,94,205,169,241,202,144,240
         System.out.println(houseRobber.rob(nums));
     }
 
@@ -40,18 +46,28 @@ Constraints:
         //the technique is to solve using recursion and dp.
         //for every home, the robber has 2 options, either to rob or to skip
 
-        return rob(nums, 0);
+
+        //dp will store max for ith cell
+        int[] dp = new int[nums.length];
+        Arrays.fill(dp,-1);
+
+        return rob(nums, 0,dp);
     }
 
-    private  int rob(int[] nums, int i){
+    private  int rob(int[] nums, int i, int[] dp){
 
         if(i >= nums.length)
             return 0;
 
-        int robCurrent = nums[i] + rob(nums, i +2);
-        int skipCurrent = rob(nums, i+1);
+        if(dp[i] != -1)
+            return dp[i];
 
-        return Math.max(robCurrent,skipCurrent);
+        int robCurrent = nums[i] + rob(nums, i +2, dp);
+        int skipCurrent = rob(nums, i+1, dp);
+
+        dp[i] =  Math.max(robCurrent,skipCurrent);
+
+        return dp[i];
 
     }
 }
